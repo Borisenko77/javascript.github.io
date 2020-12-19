@@ -1,0 +1,201 @@
+h1 {
+    display: flex;
+    justify-content: left;
+    color:yellow;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+h1:hover {
+    color: black;
+}
+body {
+    background-image:url('../css/img/florian-olivo-4hbJ-eymZ1o-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+cf:before, .cf:after {
+    content:" ";
+    display: table;
+  }
+cf:after {
+    clear: both;
+  }
+cf {
+    *zoom: 1;
+  }
+  .menu {
+    list-style:none;
+    top: 58px;
+    margin: 50px auto;
+    width: 800px;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+  }
+  .menu > li {
+    background: yellow;
+    float: left;
+    position: relative;
+    -webkit-transform: skewX(25deg);
+  }
+  .menu a {
+    display: block;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+  }
+  .menu li:hover {
+    background: #e74c3c;
+  }
+  .menu > li > a {
+    -webkit-transform: skewX(-25deg);
+    padding: 1em 2em;
+  }
+  .submenu {
+    position: absolute;
+    top: 58px;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    -webkit-transform: skewX(-25deg);
+    -webkit-transform-origin: left top;
+  }
+  .submenu li {
+    background-color: #34495e;
+    position: relative;
+    overflow: hidden;
+  }
+  .submenu > li > a {
+    padding: 1em 2em;
+  }
+  .submenu > li::after {
+    content:'';
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+  }
+
+  .submenu > li:nth-child(odd) {
+    -webkit-transform: skewX(-25deg) translateX(0);
+  }
+  .submenu > li:nth-child(odd) > a {
+    -webkit-transform: skewX(25deg);
+  }
+  .submenu > li:nth-child(odd)::after {
+    right: -50%;
+    -webkit-transform: skewX(-25deg) rotate(3deg);
+  }
+  /* Even stuff */
+  .submenu > li:nth-child(even) {
+    -webkit-transform: skewX(25deg) translateX(0);
+  }
+  .submenu > li:nth-child(even) > a {
+    -webkit-transform: skewX(-25deg);
+  }
+  .submenu > li:nth-child(even)::after {
+    left: -50%;
+    -webkit-transform: skewX(25deg) rotate(3deg);
+  }
+  .submenu, .submenu li {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .submenu li {
+    transition: .2s ease -webkit-transform;
+  }
+  .menu > li:hover .submenu, .menu > li:hover .submenu li {
+    opacity: 1;
+    visibility: visible;
+  }
+  .menu > li:hover .submenu li:nth-child(even) {
+    -webkit-transform: skewX(25deg) translateX(15px);
+  }
+  .menu > li:hover .submenu li:nth-child(odd) {
+    -webkit-transform: skewX(-25deg) translateX(-15px);
+  }
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button {
+    min-width: 300px;
+    min-height: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    }
+  
+  button::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .button:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  button:hover::before, button:focus::before {
+    opacity: 1;
+  }
+  
+  button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  button:hover::after, button:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
